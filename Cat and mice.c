@@ -6,27 +6,71 @@ No mouse should ever get eaten. You should assume that if a cat is eating at a f
 #include<stdlib.h>
 int main()
 {
-	int num1,num2,NumCats,NumMice,temp1=0,temp2=0;
-	printf("Enter the number of cats : \n");
+	int num1,num2,NumCats,NumMice,i,count,temp1=0,temp2=0;
+	printf("Enter the number of cats :\n");
 	scanf("%d",&NumCats);
-	printf("Enter the number of mice : \n");
+	printf("Enter the number of mice :\n");
 	scanf("%d",&NumMice);
-	
-	while(temp1=1)
+	int Cat_count[NumCats],Mice_count[NumMice];
+	for(i=0;i<NumCats;i++)
 	{
-		num1 = (rand()%2)+1;
+		Cat_count[i]=0;
+	}
+	for(i=0;i<NumMice;i++)
+	{
+		Mice_count[i]=0;
+	}
+	while(temp1!=NumCats&&temp2!=NumMice)
+	{
+		num1=(rand()%2)+1;
 		if(num1==1)
 		{
-			temp2 = 1;
-			while(temp2=1)
+			num2=(rand()%NumCats)+1;
+			printf("\n%d Cat is eating : ",num2);
+			count=0;
+			for(i=0;i<temp1;i++)
 			{
-				num2 = (rand()%NumCats)+1;
-				printf("%d cat is eating \n",num2);
-				temp2 = 0;
-			}		
+				if(Cat_count[i]==num2)
+				{
+					count=1;
+					break;
+				}
+				else
+				{
+					continue;
+				}				
+			}
+			if(count!=1)
+			{
+				Cat_count[temp1]=num2;
+				temp1++;
+			}
 		}
-		temp1 = 0;
-		
+		if(num1==2)
+		{
+			num2=(rand()%NumMice)+1;
+			printf("\n%d Mouse is eating : ",num2);
+			count=0;
+			for(i=0;i<temp2;i++)
+			{
+				if(Mice_count[i]==num2)
+				{
+					count=1;
+					break;
+				}
+				else
+				{
+					continue;
+				}
+				
+			}
+			if(count!=1)
+			{
+				Mice_count[temp2]=num2;
+				temp2++;
+			}
+		}
+
 	}
 	
 }
