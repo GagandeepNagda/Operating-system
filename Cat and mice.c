@@ -72,5 +72,16 @@ int main()
 		}
 
 	}
+		for(i=0;i<NumCats;i++)
+	{
+		
+		printf("%d, ",Cat_count[i]);
+	}
+	printf("\n");
+	for(i=0;i<NumMice;i++)
+	{
+		
+		printf("%d, ",Mice_count[i]);
+	}
 	
 }
