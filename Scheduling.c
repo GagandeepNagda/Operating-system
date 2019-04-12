@@ -22,20 +22,42 @@ int main()
 		WT[i]=0;
 		TT[i]=0;
 	}
+	printf("Total number of processes taken = 3\n");
+	again:
 	printf("Allocate each process a number starting from 0 : \n");
 	for(i=0;i<3;i++)
 	{
 		scanf("%d",&process[i]);
 	}
+	for(i=0;i<3;i++)
+	if(process[i]<0)
+	{
+		printf("The process ID should be positive\n");
+		goto again;
+	}
+	again1:
 	printf("Enter the Arrival time of each process : \n");
 	for(i=0;i<3;i++)
 	{
 		scanf("%f",&AT[i]);
 	}
+	for(i=0;i<3;i++)
+	if(AT[i]<0)
+	{
+		printf("The arrival time should be positive\n");
+		goto again1;
+	}
+	again2:
 	printf("Enter the Burst time of each process : \n");
 	for(i=0;i<3;i++)
 	{
 		scanf("%d",&BT[i]);
+	}
+	for(i=0;i<3;i++)
+	if(BT[i]<0)
+	{
+		printf("The burst time should be positive\n");
+		goto again2;
 	}
 	printf("\nInitial values given are\n\n");
 	printf("\tProcess\t\tArrival Time\t\tBurst time\n");
